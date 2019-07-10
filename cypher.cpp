@@ -45,6 +45,7 @@ bool run(bool enigmaenabled) {
 	int counter = 0;
 	int i = 0;
 	string trans1;
+	string trans2;
 	Break();
 	int enigmaPos = 0;
 	switch (var)
@@ -62,21 +63,13 @@ bool run(bool enigmaenabled) {
 		{
 			int character = translateltn(text[counter], 0, enigmaEnabled, 0);
 			trans1 += std::to_string(character);
+			character = translateltn(text[counter], key, enigmaEnabled, enigmaPos);
+			trans2 += std::to_string(character);
 			enigmaPos++;
 			counter++;
 		}
 		cout << trans1 << " (2/4)" << endl;
-		//3rd text
-		counter = 0;
-		trans1 = "";
-		while (counter < i)
-		{
-			int character = translateltn(text[counter], key, enigmaEnabled, enigmaPos);
-			enigmaPos++;
-			trans1 += std::to_string(character);
-			counter++;
-		}
-		cout << trans1 << " (3/4)" << endl;
+		cout << trans2 << " (3/4)" << endl;
 		enigmaPos = 0;
 		//4th and final text
 		counter = 0;
