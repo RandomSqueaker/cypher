@@ -5,10 +5,9 @@
 #include <fstream>
 using namespace std;
 
-int Break()
+void Break()
 {
 	cout << "" << endl;
-	return 0;
 }
 
 int firstquestion()
