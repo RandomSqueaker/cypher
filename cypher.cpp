@@ -8,12 +8,17 @@ using namespace std;
 
 int run() {
 	Break();
-	cout << "do you want to encrypt or decrypt? (encrypt/decrypt/close)" << endl;
+	bool enigmaEnabled = false;
+	cout << "do you want to encrypt or decrypt? (encrypt/decrypt/close/enigma)" << endl;
 
 	//encrypt is 2 decrypt is 1
 	int var = 0;
-	while (var == 0) {
-		var = firstquestion();
+	while (var == 0 || var == 3) {
+		var = firstquestion(enigmaEnabled);
+		if (var == 3) {
+			enigmaEnabled = !enigmaEnabled;
+			var = 0;
+		}
 	}
 
 	int key = -1;
@@ -41,6 +46,7 @@ int run() {
 	int i = 0;
 	string trans1;
 	Break();
+	int enigmaPos = 0;
 	switch (var)
 	{
 	case 2:
@@ -54,8 +60,9 @@ int run() {
 		}
 		while (counter < i)
 		{
-			int character = translateltn(text[counter], 0);
+			int character = translateltn(text[counter], 0, enigmaEnabled, 0);
 			trans1 += std::to_string(character);
+			enigmaPos++;
 			counter++;
 		}
 		cout << trans1 << " (2/4)" << endl;
@@ -64,19 +71,22 @@ int run() {
 		trans1 = "";
 		while (counter < i)
 		{
-			int character = translateltn(text[counter], key);
+			int character = translateltn(text[counter], key, enigmaEnabled, enigmaPos);
+			enigmaPos++;
 			trans1 += std::to_string(character);
 			counter++;
 		}
 		cout << trans1 << " (3/4)" << endl;
+		enigmaPos = 0;
 		//4th and final text
 		counter = 0;
 		translation = "";
 		while (counter < i)
 		{
-			int character = translateltn(text[counter], key);
+			int character = translateltn(text[counter], key, enigmaEnabled, enigmaPos);
 			char Character = translatentl(character);
 			translation += Character;
+			enigmaPos++;
 			counter++;
 		}
 		cout << translation << " (4/4)" << endl;
@@ -98,29 +108,34 @@ int run() {
 		}
 		while (counter < i)
 		{
-			int character = translateltn(text[counter], 0);
+			int character = translateltn(text[counter], 0, enigmaEnabled, enigmaPos);
 			trans1 += std::to_string(character);
+			enigmaPos++;
 			counter++;
 		}
 		cout << trans1 << " (2/4)" << endl;
 		//3rd text
 		counter = 0;
 		trans1 = "";
+		enigmaPos = 0;
 		while (counter < i)
 		{
-			int character = translateltn(text[counter], -key);
+			int character = translateltn(text[counter], -key, enigmaEnabled, -enigmaPos);
 			trans1 += std::to_string(character);
+			enigmaPos++;
 			counter++;
 		}
 		cout << trans1 << " (3/4)" << endl;
+		enigmaPos = 0;
 		//4th text
 		counter = 0;
 		translation = "";
 		while (counter < i)
 		{
-			int character = translateltn(text[counter], -key);
+			int character = translateltn(text[counter], -key, enigmaEnabled, -enigmaPos);
 			char Character = translatentl(character);
 			translation += Character;
+			enigmaPos++;
 			counter++;
 		}
 		cout << translation << " (4/4)" << endl;

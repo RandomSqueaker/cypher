@@ -10,7 +10,7 @@ void Break()
 	cout << "" << endl;
 }
 
-int firstquestion()
+int firstquestion(bool Enigma)
 {
 	string input;
 	cin >> input;
@@ -33,9 +33,21 @@ int firstquestion()
 		cout << "closing program..." << endl;
 		exit(EXIT_SUCCESS);
 	}
-	if (input != "encrypt" || "decrypt" || "close")
+	if (input == "enigma") {
+		Break();
+		switch (Enigma) {
+		case true:
+			cout << "enigma disabled (encrypt/decrypt/close/enigma)" << endl;
+			break;
+		case false:
+			cout << "enigma enabled (encrypt/decrypt/close/enigma)" << endl;
+			break;
+		}
+		return 3;
+	}
+	if (input != "encrypt" || "decrypt" || "close" || "enigma")
 	{
-		cout << "invalid input, try again" << endl;
+		cout << "invalid input, try again (encrypt/decrypt/close/enigma)" << endl;
 		return 0;
 	}
 	return 0;
