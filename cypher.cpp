@@ -6,9 +6,9 @@
 #include "translator.h"
 using namespace std;
 
-int run() {
+bool run(bool enigmaenabled) {
 	Break();
-	bool enigmaEnabled = false;
+	bool enigmaEnabled = enigmaenabled;
 	cout << "do you want to encrypt or decrypt? (encrypt/decrypt/close/enigma)" << endl;
 
 	//encrypt is 2 decrypt is 1
@@ -144,20 +144,24 @@ int run() {
 		cout << translation << endl;
 		break;
 	}
-	return 0;
+	if (enigmaEnabled == true) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 
 int main()
 {
-	fstream fileStream;
+	bool enigmaEnabled = false;
 	cout << " __      __        __       __|__ __|__" << endl;
 	cout << "/   " << R"(\)" << " / |__| |__  |__| |/     |     |" << endl;
 	cout << R"(\)" << "__  |  |    |  | |__  |" << endl;
-	cout << "licensed under CC-BY, created by Francis Porter 2019" << endl; \
-	int checker = 0;
-	while (checker == 0) {
-		checker = run();
+	cout << "licensed under CC-BY, created by Francis Porter 2019" << endl;
+	while(true) {
+		enigmaEnabled = run(enigmaEnabled);
 	}
 	return 0;
 }
