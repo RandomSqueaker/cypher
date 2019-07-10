@@ -5,7 +5,7 @@
 using namespace std;
 
 //ltn = letter to number
-int translateltn(char letter, int key, bool enigma, int enigmapos)
+int translateltn(char letter, int key)
 {
 	char currentchar = letter;
 	int transint;
@@ -258,9 +258,6 @@ int translateltn(char letter, int key, bool enigma, int enigmapos)
 		break;
 	}
 	transint += key;
-	if (enigma == true) {
-		transint += enigmapos;
-	}
 	return transint;
 }
 //ntl = number to letter
