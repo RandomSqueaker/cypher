@@ -85,43 +85,25 @@ bool run(bool enigmaenabled) {
 		//first text
 		cout << "decrypting..." << endl;
 		cout << text << " (1/4)" << endl;
-		//second text
+		//2nd, 3rd and 4th text
 		while (text[i] != '\0')
 		{
 			++i;
 		}
 		while (counter < i)
 		{
-			int character = translateltn(text[counter], 0, enigmaEnabled, enigmaPos);
+			int character = translateltn(text[counter], 0, enigmaEnabled, 0);
 			trans1 += std::to_string(character);
-			enigmaPos++;
-			counter++;
-		}
-		cout << trans1 << " (2/4)" << endl;
-		//3rd text
-		counter = 0;
-		trans1 = "";
-		enigmaPos = 0;
-		while (counter < i)
-		{
-			int character = translateltn(text[counter], -key, enigmaEnabled, -enigmaPos);
-			trans1 += std::to_string(character);
-			enigmaPos++;
-			counter++;
-		}
-		cout << trans1 << " (3/4)" << endl;
-		enigmaPos = 0;
-		//4th text
-		counter = 0;
-		translation = "";
-		while (counter < i)
-		{
-			int character = translateltn(text[counter], -key, enigmaEnabled, -enigmaPos);
+			character = translateltn(text[counter], -key, enigmaEnabled, -enigmaPos);
+			trans2 += std::to_string(character);
+			character = translateltn(text[counter], -key, enigmaEnabled, -enigmaPos);
 			char Character = translatentl(character);
 			translation += Character;
 			enigmaPos++;
 			counter++;
 		}
+		cout << trans1 << " (2/4)" << endl;
+		cout << trans2 << " (3/4)" << endl;
 		cout << translation << " (4/4)" << endl;
 		Break();
 		cout << "decrypted text:" << endl;
