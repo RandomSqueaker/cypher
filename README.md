@@ -7,3 +7,6 @@ encrypt: will encrypt a message
 close: will close the program
 
 simply unzip the .zip file and run the program!
+
+by the way, the c++ input command will cut off after a "whitespace", so dont use spaces!
+(hopefully will be patched soon)
