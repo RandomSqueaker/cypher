@@ -122,9 +122,10 @@ bool run(bool enigmaenabled) {
 int main()
 {
 	bool enigmaEnabled = false;
-	cout << " __      __        __       __|__ __|__" << endl;
-	cout << "/   " << R"(\)" << " / |__| |__  |__| |/     |     |" << endl;
-	cout << R"(\)" << "__  |  |    |  | |__  |" << endl;
+	cout << R"( __      __  ||___   ___      __|__ __|__)" << endl;
+	cout << R"(//  \\//||_| | ___| ||_|| ||//  |     |)" << endl;
+	cout << R"(||   || ||   ||  || ||_   | /)"<< endl;
+	cout << R"(\\_  || ||   ||  || |__|  ||)" << endl;
 	cout << "licensed under CC-BY, created by Francis Porter 2019" << endl;
 	while(true) {
 		enigmaEnabled = run(enigmaEnabled);
