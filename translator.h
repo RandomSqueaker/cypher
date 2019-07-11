@@ -278,6 +278,9 @@ char translatentl(int letter)
 	{
 		letter -= size;
 	}
+	if (letter < 1) {
+		letter += size;
+	}
 	switch (letter)
 	{
 	case 1:
