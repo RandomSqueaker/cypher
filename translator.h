@@ -5,7 +5,7 @@
 using namespace std;
 
 //ltn = letter to number
-int translateltn(char letter, int key)
+int translateltn(char letter, int key, bool enigma, int enigmapos)
 {
 	char currentchar = letter;
 	int transint;
@@ -89,7 +89,7 @@ int translateltn(char letter, int key)
 	case 'z':
 		transint = 26;
 		break;
-	case ' ':
+	case '+':
 		transint = 27;
 		break;
 	case'A':
@@ -251,6 +251,9 @@ int translateltn(char letter, int key)
 	case'>':
 		transint = 80;
 		break;
+	case'=':
+		transint = 80;
+		break;
 	default:
 		Break();
 		cout << "invalid character caused a program error (" << currentchar << ")" << endl;
@@ -258,6 +261,9 @@ int translateltn(char letter, int key)
 		break;
 	}
 	transint += key;
+	if (enigma == true) {
+		transint += enigmapos;
+	}
 	return transint;
 }
 //ntl = number to letter
@@ -266,7 +272,7 @@ char translatentl(int letter)
 	//tc = translated char
 	char tc;
 
-	int size = 80;
+	int size = 81;
 
 	if (letter > size)
 	{
@@ -353,7 +359,7 @@ char translatentl(int letter)
 		tc = 'z';
 		break;
 	case 27:
-		tc = ' ';
+		tc = '+';
 		break;
 	case 28:
 		tc = 'A';
@@ -513,6 +519,9 @@ char translatentl(int letter)
 		break;
 	case 80:
 		tc = '>';
+		break;
+	case 81:
+		tc = '=';
 		break;
 	default:
 		Break();
