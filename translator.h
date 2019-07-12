@@ -2,6 +2,7 @@
 #include "pch.h"
 #include <iostream>
 #include <string>
+#include "functions.h"
 using namespace std;
 
 //ltn = letter to number
@@ -260,6 +261,7 @@ int translateltn(char letter, int key, bool enigma, int enigmapos)
 		exit(EXIT_FAILURE);
 		break;
 	}
+	//adding key and enigma
 	transint += key;
 	if (enigma == true) {
 		transint += enigmapos;
@@ -274,6 +276,7 @@ char translatentl(int letter)
 
 	int size = 81;
 
+	//size checks
 	if (letter > size)
 	{
 		letter -= size;
@@ -281,6 +284,7 @@ char translatentl(int letter)
 	if (letter < 1) {
 		letter += size;
 	}
+	//translation
 	switch (letter)
 	{
 	case 1:
