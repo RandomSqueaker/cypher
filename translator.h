@@ -255,6 +255,36 @@ int translateltn(char letter, int key, bool enigma, int enigmapos)
 	case'=':
 		transint = 80;
 		break;
+	case'1':
+		transint = 81;
+		break;
+	case'2':
+		transint = 82;
+		break;
+	case'3':
+		transint = 83;
+		break;
+	case'4':
+		transint = 84;
+		break;
+	case'5':
+		transint = 85;
+		break;
+	case'6':
+		transint = 86;
+		break;
+	case'7':
+		transint = 87;
+		break;
+	case'8':
+		transint = 88;
+		break;
+	case'9':
+		transint = 89;
+		break;
+	case'0':
+		transint = 90;
+		break;
 	default:
 		Break();
 		cout << "invalid character caused a program error (" << currentchar << ")" << endl;
@@ -274,7 +304,7 @@ char translatentl(int letter)
 	//tc = translated char
 	char tc;
 
-	int size = 81;
+	int size = 91;
 
 	//size checks
 	if (letter > size)
@@ -529,6 +559,36 @@ char translatentl(int letter)
 		break;
 	case 81:
 		tc = '=';
+		break;
+	case 81:
+		tc = '1';
+		break;
+	case 82:
+		tc = '2';
+		break;
+	case 83:
+		tc = '3';
+		break;
+	case 84:
+		tc = '4';
+		break;
+	case 85:
+		tc = '5';
+		break;
+	case 86:
+		tc = '6';
+		break;
+	case 87:
+		tc = '7';
+		break;
+	case 88:
+		tc = '8';
+		break;
+	case 89:
+		tc = '9';
+		break;
+	case 90:
+		tc = '0';
 		break;
 	default:
 		Break();
